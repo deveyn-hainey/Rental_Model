@@ -1,0 +1,189 @@
+2025-07-03 12:10:06.105 | INFO     | model_service:load_model:19 - checking the existance of model config file at models/rf_db_v1
+2025-07-03 12:10:06.106 | INFO     | model_service:load_model:26 - model rf_db_v1 exists! -> loading model configuration file
+2025-07-03 12:10:06.152 | INFO     | model_service:predict:30 - making prediction!
+2025-07-03 12:11:31.060 | INFO     | __main__:main:9 - running the application...
+2025-07-03 12:11:31.061 | INFO     | model_service:load_model:19 - checking the existance of model config file at models/rf_db_v1
+2025-07-03 12:11:31.061 | INFO     | model_service:load_model:26 - model rf_db_v1 exists! -> loading model configuration file
+2025-07-03 12:11:31.097 | INFO     | model_service:predict:30 - making prediction!
+2025-07-03 12:11:31.114 | INFO     | __main__:main:14 - prediction = [2019.00566527]
+2025-07-03 12:16:06.131 | INFO     | __main__:main:10 - running the application...
+2025-07-03 12:16:06.131 | INFO     | model_service:load_model:20 - checking the existance of model config file at models/rf_db_v1
+2025-07-03 12:16:06.131 | INFO     | model_service:load_model:27 - model rf_db_v1 exists! -> loading model configuration file
+2025-07-03 12:16:06.185 | INFO     | model_service:predict:31 - making prediction!
+2025-07-03 12:16:06.191 | ERROR    | __main__:<module>:20 - An error has been caught in function '<module>', process 'MainProcess' (42594), thread 'MainThread' (140704635809216):
+Traceback (most recent call last):
+
+> File "/Users/deveynhainey/Desktop/RentalModels/model_to_packaging/runner.py", line 20, in <module>
+    main()
+    └ <function main at 0x1065c2840>
+
+  File "/Users/deveynhainey/Desktop/RentalModels/model_to_packaging/runner.py", line 17, in main
+    pred = ml_svc.predict(input_data)
+           │      │       └    area  constraction_year  bedrooms  ...  furnished_yes  garage_yes  storage_yes
+           │      │         0    85               2015         2  ...  ...
+           │      └ <function ModelService.predict at 0x110f6f880>
+           └ <model_service.ModelService object at 0x1066f4ad0>
+
+  File "/Users/deveynhainey/Desktop/RentalModels/model_to_packaging/model_service.py", line 32, in predict
+    return self.model.predict([input_parameters])
+           │    │     │        └    area  constraction_year  bedrooms  ...  furnished_yes  garage_yes  storage_yes
+           │    │     │          0    85               2015         2  ...  ...
+           │    │     └ <function ForestRegressor.predict at 0x110940d60>
+           │    └ RandomForestRegressor(max_depth=12, n_estimators=300)
+           └ <model_service.ModelService object at 0x1066f4ad0>
+
+  File "/Users/deveynhainey/Library/Caches/pypoetry/virtualenvs/model-to-packaging-CxZdHsx0-py3.13/lib/python3.13/site-packages/sklearn/ensemble/_forest.py", line 1065, in predict
+    X = self._validate_X_predict(X)
+        │    │                   └ [   area  constraction_year  bedrooms  ...  furnished_yes  garage_yes  storage_yes
+        │    │                     0    85               2015         2  ... ...
+        │    └ <function BaseForest._validate_X_predict at 0x110940400>
+        └ RandomForestRegressor(max_depth=12, n_estimators=300)
+  File "/Users/deveynhainey/Library/Caches/pypoetry/virtualenvs/model-to-packaging-CxZdHsx0-py3.13/lib/python3.13/site-packages/sklearn/ensemble/_forest.py", line 637, in _validate_X_predict
+    X = validate_data(
+        └ <function validate_data at 0x10f1bac00>
+  File "/Users/deveynhainey/Library/Caches/pypoetry/virtualenvs/model-to-packaging-CxZdHsx0-py3.13/lib/python3.13/site-packages/sklearn/utils/validation.py", line 2954, in validate_data
+    out = check_array(X, input_name="X", **check_params)
+          │           │                    └ {'estimator': RandomForestRegressor(max_depth=12, n_estimators=300), 'dtype': <class 'numpy.float32'>, 'accept_sparse': 'csr'...
+          │           └ [   area  constraction_year  bedrooms  ...  furnished_yes  garage_yes  storage_yes
+          │             0    85               2015         2  ... ...
+          └ <function check_array at 0x10f1b98a0>
+  File "/Users/deveynhainey/Library/Caches/pypoetry/virtualenvs/model-to-packaging-CxZdHsx0-py3.13/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1099, in check_array
+    raise ValueError(
+
+ValueError: Found array with dim 3, while dim <= 2 is required by RandomForestRegressor.
+2025-07-03 12:17:53.711 | INFO     | __main__:main:10 - running the application...
+2025-07-03 12:17:53.711 | ERROR    | __main__:<module>:20 - An error has been caught in function '<module>', process 'MainProcess' (42621), thread 'MainThread' (140704635809216):
+Traceback (most recent call last):
+
+> File "/Users/deveynhainey/Desktop/RentalModels/model_to_packaging/runner.py", line 20, in <module>
+    main()
+    └ <function main at 0x101032840>
+
+  File "/Users/deveynhainey/Desktop/RentalModels/model_to_packaging/runner.py", line 12, in main
+    ml_svc.load_model()
+    │      └ <function ModelService.load_model at 0x10ba4bb00>
+    └ <model_service.ModelService object at 0x101168ad0>
+
+TypeError: ModelService.load_model() missing 1 required positional argument: 'input_parameters'
+2025-07-03 12:20:51.039 | INFO     | __main__:main:10 - running the application...
+2025-07-03 12:20:51.040 | INFO     | model_service:load_model:21 - checking the existance of model config file at models/rf_db_v1
+2025-07-03 12:20:51.040 | INFO     | model_service:load_model:28 - model rf_db_v1 exists! -> loading model configuration file
+2025-07-03 12:20:51.085 | INFO     | model_service:predict:32 - making prediction with input: [85, 2015, 2, 20, 1, 2, 0, 0, 1]
+2025-07-03 12:20:51.107 | INFO     | __main__:main:16 - prediction = [2019.00566527]
+2025-07-03 12:41:57.086 | INFO     | __main__:main:8 - running the application...
+2025-07-03 12:41:57.087 | INFO     | model_service:load_model:13 - checking the existance of model config file at models/rf_db_v1
+2025-07-03 12:41:57.087 | INFO     | model_service:load_model:20 - model rf_db_v1 exists! -> loading model configuration file
+2025-07-03 12:41:57.133 | INFO     | model_service:predict:24 - making prediction!
+2025-07-03 12:41:57.146 | INFO     | __main__:main:12 - prediction = [2019.00566527]
+2025-07-03 13:02:47.944 | INFO     | __main__:main:8 - running the application...
+2025-07-03 13:02:47.945 | INFO     | model_service:load_model:13 - checking the existance of model config file at models/rf_v1
+2025-07-03 13:02:47.945 | INFO     | model_service:load_model:20 - model rf_v1 exists! -> loading model configuration file
+2025-07-03 13:02:47.971 | INFO     | model_service:predict:24 - making prediction!
+2025-07-03 13:02:47.985 | INFO     | __main__:main:12 - prediction = [2009.72266319]
+2025-07-03 13:16:37.362 | INFO     | __main__:main:8 - running the application...
+2025-07-03 13:16:37.363 | INFO     | model_service:load_model:13 - checking the existance of model config file at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-03 13:16:37.363 | WARNING  | model_service:load_model:17 - model at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1 was not found -> building rf_v1
+2025-07-03 13:16:37.364 | INFO     | model:build_model:12 - starting up model building pipeline
+2025-07-03 13:16:37.364 | INFO     | data_preparation:prepare_data:9 - starting up preprocessing pipeline
+2025-07-03 13:16:37.364 | INFO     | data_collection:load_data:8 - loading csv file at path /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/rent_apartments.csv
+2025-07-03 13:16:37.380 | INFO     | data_preparation:encode_cat_cols:23 - encoding categorical columns: ['balcony', 'parking', 'furnished', 'garage', 'storage']
+2025-07-03 13:16:37.393 | INFO     | data_preparation:parse_garden_col:30 - pasring garden column
+2025-07-03 13:16:37.963 | INFO     | model:get_X_y:40 - defining X and Y variables. 
+X vars: ['area', 'constraction_year', 'bedrooms', 'garden', 'balcony_yes', 'parking_yes', 'furnished_yes', 'garage_yes', 'storage_yes']
+y var: rent
+2025-07-03 13:16:37.965 | INFO     | model:split_train_test:46 - splitting data into train and test sets
+2025-07-03 13:16:37.969 | INFO     | model:train_model:55 - training a model with hyperparameters
+2025-07-03 13:16:57.921 | INFO     | model:evaluate_model:73 - evaluating model performance. SCORE=0.7651345424672373
+2025-07-03 13:16:57.943 | INFO     | model:save_model:78 - saving a model to a directory: /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-03 13:16:57.982 | INFO     | model_service:load_model:20 - model rf_v1 exists! -> loading model configuration file
+2025-07-03 13:16:58.018 | INFO     | model_service:predict:24 - making prediction!
+2025-07-03 13:16:58.032 | INFO     | __main__:main:12 - prediction = [1927.44622552]
+2025-07-03 13:19:02.883 | INFO     | __main__:main:8 - running the application...
+2025-07-03 13:19:02.883 | INFO     | model_service:load_model:13 - checking the existance of model config file at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-03 13:19:02.884 | INFO     | model_service:load_model:20 - model rf_v1 exists! -> loading model configuration file
+2025-07-03 13:19:02.922 | INFO     | model_service:predict:24 - making prediction!
+2025-07-03 13:19:02.935 | INFO     | __main__:main:12 - prediction = [1927.44622552]
+2025-07-03 13:19:46.624 | INFO     | __main__:main:8 - running the application...
+2025-07-03 13:19:46.624 | INFO     | model_service:load_model:13 - checking the existance of model config file at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-03 13:19:46.624 | INFO     | model_service:load_model:20 - model rf_v1 exists! -> loading model configuration file
+2025-07-03 13:19:46.662 | INFO     | model_service:predict:24 - making prediction!
+2025-07-03 13:19:46.675 | INFO     | __main__:main:12 - prediction = [1927.44622552]
+2025-07-03 13:20:01.530 | INFO     | __main__:main:8 - running the application...
+2025-07-03 13:20:01.531 | INFO     | model_service:load_model:13 - checking the existance of model config file at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-03 13:20:01.531 | INFO     | model_service:load_model:20 - model rf_v1 exists! -> loading model configuration file
+2025-07-03 13:20:01.566 | INFO     | model_service:predict:24 - making prediction!
+2025-07-03 13:20:01.578 | INFO     | __main__:main:12 - prediction = [1927.44622552]
+2025-07-03 13:24:13.986 | INFO     | __main__:main:8 - running the application...
+2025-07-03 13:24:13.987 | INFO     | model_service:load_model:13 - checking the existance of model config file at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-03 13:24:13.987 | INFO     | model_service:load_model:20 - model rf_v1 exists! -> loading model configuration file
+2025-07-03 13:24:14.031 | INFO     | model_service:predict:24 - making prediction!
+2025-07-03 13:24:14.033 | ERROR    | __main__:<module>:15 - An error has been caught in function '<module>', process 'MainProcess' (76333), thread 'MainThread' (140704635809216):
+Traceback (most recent call last):
+
+> File "/Users/deveynhainey/Desktop/RentalModels/model_to_packaging/runner.py", line 15, in <module>
+    main()
+    └ <function main at 0x10a9bc9a0>
+
+  File "/Users/deveynhainey/Desktop/RentalModels/model_to_packaging/runner.py", line 11, in main
+    pred = ml_svc.predict([85, 2015, 2, 20, 1, 1, 0, 0, 1])
+           │      └ <function ModelService.predict at 0x12a029e40>
+           └ <model_service.ModelService object at 0x10a9c8990>
+
+  File "/Users/deveynhainey/Desktop/RentalModels/model_to_packaging/model_service.py", line 25, in predict
+    return self.model.predict(input_parameters)
+           │    │     │       └ [85, 2015, 2, 20, 1, 1, 0, 0, 1]
+           │    │     └ <function ForestRegressor.predict at 0x1266799e0>
+           │    └ RandomForestRegressor(max_depth=12, n_estimators=300)
+           └ <model_service.ModelService object at 0x10a9c8990>
+
+  File "/Users/deveynhainey/Library/Caches/pypoetry/virtualenvs/module2-CxZdHsx0-py3.11/lib/python3.11/site-packages/sklearn/ensemble/_forest.py", line 984, in predict
+    X = self._validate_X_predict(X)
+        │    │                   └ [85, 2015, 2, 20, 1, 1, 0, 0, 1]
+        │    └ <function BaseForest._validate_X_predict at 0x126679120>
+        └ RandomForestRegressor(max_depth=12, n_estimators=300)
+  File "/Users/deveynhainey/Library/Caches/pypoetry/virtualenvs/module2-CxZdHsx0-py3.11/lib/python3.11/site-packages/sklearn/ensemble/_forest.py", line 599, in _validate_X_predict
+    X = self._validate_data(X, dtype=DTYPE, accept_sparse="csr", reset=False)
+        │    │              │        └ <class 'numpy.float32'>
+        │    │              └ [85, 2015, 2, 20, 1, 1, 0, 0, 1]
+        │    └ <function BaseEstimator._validate_data at 0x124fd2840>
+        └ RandomForestRegressor(max_depth=12, n_estimators=300)
+  File "/Users/deveynhainey/Library/Caches/pypoetry/virtualenvs/module2-CxZdHsx0-py3.11/lib/python3.11/site-packages/sklearn/base.py", line 605, in _validate_data
+    out = check_array(X, input_name="X", **check_params)
+          │           │                    └ {'estimator': RandomForestRegressor(max_depth=12, n_estimators=300), 'dtype': <class 'numpy.float32'>, 'accept_sparse': 'csr'}
+          │           └ [85, 2015, 2, 20, 1, 1, 0, 0, 1]
+          └ <function check_array at 0x124eacfe0>
+  File "/Users/deveynhainey/Library/Caches/pypoetry/virtualenvs/module2-CxZdHsx0-py3.11/lib/python3.11/site-packages/sklearn/utils/validation.py", line 938, in check_array
+    raise ValueError(
+
+ValueError: Expected 2D array, got 1D array instead:
+array=[8.500e+01 2.015e+03 2.000e+00 2.000e+01 1.000e+00 1.000e+00 0.000e+00
+ 0.000e+00 1.000e+00].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2025-07-03 13:26:59.200 | INFO     | __main__:main:8 - running the application...
+2025-07-03 13:26:59.201 | INFO     | model_service:load_model:13 - checking the existance of model config file at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-03 13:26:59.201 | INFO     | model_service:load_model:20 - model rf_v1 exists! -> loading model configuration file
+2025-07-03 13:26:59.238 | INFO     | model_service:predict:24 - making prediction!
+2025-07-03 13:26:59.251 | INFO     | __main__:main:12 - prediction = [1927.44622552]
+2025-07-03 13:27:45.315 | INFO     | __main__:main:8 - running the application...
+2025-07-03 13:27:45.316 | INFO     | model_service:load_model:13 - checking the existance of model config file at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-03 13:27:45.316 | WARNING  | model_service:load_model:17 - model at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1 was not found -> building rf_v1
+2025-07-03 13:27:45.317 | INFO     | model:build_model:12 - starting up model building pipeline
+2025-07-03 13:27:45.317 | INFO     | data_preparation:prepare_data:7 - starting up preprocessing pipeline
+2025-07-03 13:27:45.317 | INFO     | data_collection:load_data:8 - loading csv file at path /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/rent_apartments.csv
+2025-07-03 13:27:45.331 | INFO     | data_preparation:encode_cat_cols:21 - encoding categorical columns: ['balcony', 'parking', 'furnished', 'garage', 'storage']
+2025-07-03 13:27:45.341 | INFO     | data_preparation:parse_garden_col:27 - parsing garden column
+2025-07-03 13:27:45.499 | INFO     | model:get_X_y:40 - defining X and Y variables. 
+X vars: ['area', 'constraction_year', 'bedrooms', 'garden', 'balcony_yes', 'parking_yes', 'furnished_yes', 'garage_yes', 'storage_yes']
+y var: rent
+2025-07-03 13:27:45.501 | INFO     | model:split_train_test:46 - splitting data into train and test sets
+2025-07-03 13:27:45.503 | INFO     | model:train_model:55 - training a model with hyperparameters
+2025-07-03 13:28:03.478 | INFO     | model:evaluate_model:73 - evaluating model performance. SCORE=0.7218455975726803
+2025-07-03 13:28:03.498 | INFO     | model:save_model:78 - saving a model to a directory: /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-03 13:28:03.517 | INFO     | model_service:load_model:20 - model rf_v1 exists! -> loading model configuration file
+2025-07-03 13:28:03.532 | INFO     | model_service:predict:24 - making prediction!
+2025-07-03 13:28:03.545 | INFO     | __main__:main:12 - prediction = [2037.99040521]
+2025-07-04 08:43:05.540 | INFO     | __main__:main:8 - running the application...
+2025-07-04 08:43:05.541 | INFO     | model_service:load_model:13 - checking the existance of model config file at /Users/deveynhainey/Desktop/RentalModels/model_to_packaging/models/rf_v1
+2025-07-04 08:43:05.541 | INFO     | model_service:load_model:20 - model rf_v1 exists! -> loading model configuration file
+2025-07-04 08:43:05.564 | INFO     | model_service:predict:24 - making prediction!
+2025-07-04 08:43:05.580 | INFO     | __main__:main:12 - prediction = [2037.99040521]
